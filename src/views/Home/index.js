@@ -1,18 +1,20 @@
-import Login from "../Login";
+import Login from '../Login';
+import Layout from '../../components/Layout';
+import { useEffect } from 'react';
 
 const Home = () => {
 
-    localStorage.setItem('user', 'Jose');
+    const user =  JSON.parse(localStorage.getItem('user'));
+    console.log(user); 
 
-    const user = localStorage.getItem('user'); 
-
-    
-
-    return(
-        <div>
-            Desde Home 
-        </div>
+    return (
+        <>
+            {
+                user ? <Layout /> : <Login />
+            }
+        </>
     )
+
 }
 
 export default Home; 

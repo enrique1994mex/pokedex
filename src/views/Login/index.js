@@ -23,7 +23,7 @@ const Login = () => {
         const user = { email, password };
         console.log(user);
         localStorage.setItem('user', JSON.stringify(user));
-        //window.location.href = "/"
+        window.location.href = "/"
         e.preventDefault();
     }
     return (
@@ -35,13 +35,13 @@ const Login = () => {
                         <h1 className='mb-5 text-center text-secondary'>Pokedex</h1>
 
                         <Form.Group className="mb-4" controlId="formBasicEmail">
-                            <Form.Control type="email" className='form-control' id="InputEmail" value={email} name="email" 
-                                onChange={handleEmail} required placeholder='Correo Electrónico'/>
+                            <Form.Control type="email" className='form-control' id="InputEmail" value={email}
+                                onChange={handleEmail} required placeholder='Correo Electrónico' />
                         </Form.Group>
 
                         <Form.Group className="mb-4" controlId="formBasicPassword">
                             <Form.Control type="password" className='form-control' id="InputPassword" minLength="8" value={password}
-                                name="password" onChange={handlePassword} required placeholder='Contraseña' />
+                                onChange={handlePassword} required placeholder='Contraseña' />
                         </Form.Group>
 
                         <Button type="submit" variant="secondary" className="d-block mx-auto">Iniciar Sesión</Button>

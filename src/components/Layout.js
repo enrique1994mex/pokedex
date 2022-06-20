@@ -1,6 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { Container, Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
+import Lista from '../components/Lista';
+import Cuadricula from '../components/Cuadricula'; 
+
 const Layout = ({ children }) => {
 
     //Estado de los botones Lista y Cuadrícula
@@ -51,7 +54,11 @@ const Layout = ({ children }) => {
                     </Col>
                 </Row>
             </Container>
-            {children}
+            <main>
+                {
+                    buttonView ? <Lista/> :  <Cuadricula/>
+                }
+            </main>
         </div>
     )
 }

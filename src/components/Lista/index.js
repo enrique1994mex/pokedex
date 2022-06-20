@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table, Button } from 'react-bootstrap';
+import ItemLista from './ItemLista';
 
 const Lista = ({ pokemons, isLoading }) => {
 
@@ -11,9 +12,9 @@ const Lista = ({ pokemons, isLoading }) => {
 
     return (
         <>
-            <Table variant="primary">
-                <thead className="text-secondary">
-                    <tr>
+            <Table borderless>
+                <thead className="text-secondary bg-light">
+                    <tr variant="primary">
                         <th className="text-center">#</th>
                         <th className="text-center">Nombre</th>
                         <th className="text-center">Vista Previa</th>
@@ -24,14 +25,7 @@ const Lista = ({ pokemons, isLoading }) => {
                 <tbody>
                     {
                         pokemons.map(pokemon => (
-                            <tr>
-                                <td>{pokemon.name}</td>
-                                <td>{pokemon.name}</td>
-                                <td>{pokemon.name}</td>
-                                <td>{pokemon.name}</td>
-                                <td>{pokemon.name}</td>
-                                <Button>Shiny</Button>
-                            </tr>
+                            <ItemLista key={pokemon.name} pokemon={pokemon.name} url={pokemon.url} />
                         ))
                     }
                 </tbody>

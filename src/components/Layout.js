@@ -1,25 +1,25 @@
 import React from 'react';
-import { useState} from 'react';
+import { useState } from 'react';
 import { Container, Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
 import Lista from '../components/Lista';
-import Cuadricula from '../components/Cuadricula'; 
+import Cuadricula from '../components/Cuadricula';
 
-const Layout = ({pokemons}) => {
+const Layout = ({ pokemons, isLoading }) => {
 
     //Estado de los botones Lista y Cuadrícula
     const [buttonView, setButtonView] = useState(true);
 
     //Estado del buscador
-    const [search, setSearch] = useState(''); 
+    const [search, setSearch] = useState('');
 
     //Función para manejar el estado del buscador
-    const handleSearch = ({target}) => {
+    const handleSearch = ({ target }) => {
         setSearch(target.value);
     }
 
     //Función para manejar el estado del botón buscador
     const handleSearchClick = () => {
-        console.log(search); 
+        console.log(search);
     }
 
     //Función para manejar el estado de los botones
@@ -31,7 +31,7 @@ const Layout = ({pokemons}) => {
         <div>
             <Container>
                 <h1 className='text-secondary fs-3 fw-bold mt-4 mb-3'>Pokédex</h1>
-                <Row className="justify-content-between">
+                <Row className="justify-content-between mb-2">
                     <Col md={4}>
                         <InputGroup size="lg">
                             <Button variant="outline-secondary" id="button-addon1" onClick={handleSearchClick}>
@@ -53,12 +53,12 @@ const Layout = ({pokemons}) => {
                         <Button variant="outline-secondary" className="w-50" active={!buttonView} onClick={handleButton}>Cuadrícula</Button>
                     </Col>
                 </Row>
+                <main>
+                    {
+                        buttonView ? <Lista pokemons={pokemons} isLoading={isLoading} /> : <Cuadricula />
+                    }
+                </main>
             </Container>
-            <main>
-                {
-                    buttonView ? <Lista pokemons={pokemons}/> :  <Cuadricula/>
-                }
-            </main>
         </div>
     )
 }

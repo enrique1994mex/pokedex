@@ -17,16 +17,13 @@ const Home = () => {
         dispatch(fetchPokemons()); 
     },[])
 
-    console.log(isLoading)
-    console.log(pokemons)
-    console.log(errorPokemons) 
-
     const user =  JSON.parse(localStorage.getItem('user'));
+
     
     return (
         <div>
             {
-                user ? <Layout pokemons={pokemons} /> : <Login />
+                user ? <Layout pokemons={pokemons} isLoading={isLoading} /> : <Login />
             }
         </div>
     )

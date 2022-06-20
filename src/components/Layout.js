@@ -1,10 +1,19 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import { Container, Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
 import Lista from '../components/Lista';
 import Cuadricula from '../components/Cuadricula'; 
+import { useDispatch } from 'react-redux';
+import { fetchPokemons } from '../redux/actions/pokemon';
 
-const Layout = ({ children }) => {
+const Layout = () => {
+
+    //Dispatch
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchPokemons()); 
+    },[])
 
     //Estado de los botones Lista y Cuadrícula
     const [buttonView, setButtonView] = useState(true);

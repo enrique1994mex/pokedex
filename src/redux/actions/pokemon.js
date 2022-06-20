@@ -10,10 +10,10 @@ export const fetchPokemons = () => async (dispatch) => {
     //Iniciar la llamada a la API
     pokemons()
         .then(info => {
-            dispatch(startFetchInfoActor());
-            dispatch(successFetchInfoActor({ info }));
+            dispatch(startFetchPokemons());
+            dispatch(successFetchPokemons({ info }));
         })
         .catch(error => {
-            dispatch(errorFetchInfoActor(error.message))
+            dispatch(errorFetchPokemons(error.message))
         })
 }

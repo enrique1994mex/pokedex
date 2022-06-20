@@ -6,6 +6,19 @@ const Layout = ({ children }) => {
     //Estado de los botones Lista y Cuadrícula
     const [buttonView, setButtonView] = useState(true);
 
+    //Estado del buscador
+    const [search, setSearch] = useState(''); 
+
+    //Función para manejar el estado del buscador
+    const handleSearch = ({target}) => {
+        setSearch(target.value);
+    }
+
+    //Función para manejar el estado del botón buscador
+    const handleSearchClick = () => {
+        console.log(search); 
+    }
+
     //Función para manejar el estado de los botones
     const handleButton = (e) => {
         setButtonView(!buttonView);
@@ -18,7 +31,7 @@ const Layout = ({ children }) => {
                 <Row className="justify-content-between">
                     <Col md={4}>
                         <InputGroup size="lg">
-                            <Button variant="outline-secondary" id="button-addon1">
+                            <Button variant="outline-secondary" id="button-addon1" onClick={handleSearchClick}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
                                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                 </svg>
@@ -27,6 +40,8 @@ const Layout = ({ children }) => {
                                 placeholder="Buscar Pokémon"
                                 aria-label="Buscar Pokémon"
                                 aria-describedby="basic-addon1"
+                                value={search}
+                                onChange={handleSearch}
                             />
                         </InputGroup>
                     </Col>

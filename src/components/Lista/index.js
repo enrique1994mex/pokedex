@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Button } from 'react-bootstrap';
+import { Table} from 'react-bootstrap';
 import ItemLista from './ItemLista';
 
 const Lista = ({ pokemons, isLoading }) => {
@@ -7,8 +7,6 @@ const Lista = ({ pokemons, isLoading }) => {
     if (isLoading) {
         return <div>Cargando...</div>
     }
-
-    console.log(pokemons)
 
     return (
         <>

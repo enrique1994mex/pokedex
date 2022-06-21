@@ -17,3 +17,10 @@ export const fetchPokemons = () => async (dispatch) => {
             dispatch(errorFetchPokemons(error.message))
         })
 }
+
+
+export const addPokemon = createAction('ADD_POKEMON');
+
+
+
+

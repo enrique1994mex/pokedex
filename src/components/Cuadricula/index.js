@@ -1,11 +1,19 @@
 import React from 'react'; 
+import { Container, Row } from 'react-bootstrap';
+import ItemCuadricula from './ItemCuadricula';
 
-const Cuadricula = () => {
+const Cuadricula = ({pokemons}) => {
 
     return(
-        <div>
-            Cuadricula
-        </div>
+        <Container>
+            <Row className="g-3">
+                {
+                    pokemons.map(pokemon => (
+                        <ItemCuadricula key={pokemon.name} name={pokemon.name}/>
+                    ))
+                }
+            </Row>
+        </Container>
     )
 }
 

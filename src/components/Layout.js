@@ -70,7 +70,7 @@ const Layout = () => {
                 </Row>
                 <main>
                     {
-                       buttonView ? <Lista pokemons={pokemons} isLoading={isLoading}/> : <Cuadricula />
+                       buttonView ? <Lista pokemons={pokemons} isLoading={isLoading}/> : <Cuadricula pokemons={pokemons} />
                     }
                 </main>
             </Container>

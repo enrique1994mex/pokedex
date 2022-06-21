@@ -1,20 +1,32 @@
 import React from 'react'; 
+import { useEffect } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import ItemCuadricula from './ItemCuadricula';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { fetchPokemons } from '../../redux/actions/pokemon';
 
-const Cuadricula = ({pokemons}) => {
+const Cuadricula = () => {
 
-    const {pokemonsInfo} = useSelector((state) => state.pokemonsReducer);
+    const { isLoading, pokemons, errorPokemons } = useSelector((state) => state.pokemonsReducer);
 
-    console.log(pokemonsInfo)
+     //Dispatch
+     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchPokemons()); 
+    },[])
+
+    if(isLoading) {
+        return <div>Cargando...</div>
+    }
 
     return(
         <Container>
             <Row className="g-3">
                 {
                     pokemons.map(pokemon => (
-                        <ItemCuadricula key={pokemon.name} name={pokemon.name}/>
+                        <ItemCuadricula key={pokemon.name} url={pokemon.url}/>
                     ))
                 }
             </Row>

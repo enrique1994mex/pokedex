@@ -21,8 +21,6 @@ const Lista = () => {
         return <div>Cargando...</div>
     }
 
-    console.log("Pasa por Lista")
-
     return (
         //Renderizado de los pokemons en forma de Lista
         <>

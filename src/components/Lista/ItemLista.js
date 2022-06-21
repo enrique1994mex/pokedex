@@ -1,14 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Button, Image } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 import { pokemonInfo } from '../../api';
 import { addPokemon} from '../../redux/actions/pokemon'; 
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux'; 
 
 const ItemLista = ({ url }) => {
-
-    const { pokemonsInfo } = useSelector((state) => state.pokemonsReducer);
 
     //Dispatch
     const dispatch = useDispatch();
@@ -22,8 +19,6 @@ const ItemLista = ({ url }) => {
                 dispatch(addPokemon({info:data}))
             })
     }, [])
-
-    console.log(pokemonsInfo)
 
     if (!info) {
         return <tr></tr>

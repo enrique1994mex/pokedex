@@ -4,8 +4,6 @@ import { Form, Button, Row, Container, Col } from 'react-bootstrap';
 
 const Login = () => {
 
-    console.log(JSON.parse(localStorage.getItem('user')));
-
     //Componentes controlados
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -21,9 +19,7 @@ const Login = () => {
     //Simular el inicio de sesión con localStorage
     const handleSubmit = async (e) => {
         const user = { email, password };
-        console.log(user);
         localStorage.setItem('user', JSON.stringify(user));
-        window.location.href = "/"
         e.preventDefault();
     }
     return (
@@ -35,12 +31,12 @@ const Login = () => {
                         <h1 className='mb-5 text-center text-secondary'>Pokedex</h1>
 
                         <Form.Group className="mb-4" controlId="formBasicEmail">
-                            <Form.Control type="email" className='form-control' id="InputEmail" value={email}
+                            <Form.Control type="email" className='form-control' value={email}
                                 onChange={handleEmail} required placeholder='Correo Electrónico' />
                         </Form.Group>
 
                         <Form.Group className="mb-4" controlId="formBasicPassword">
-                            <Form.Control type="password" className='form-control' id="InputPassword" minLength="8" value={password}
+                            <Form.Control type="password" className='form-control' minLength="8" value={password}
                                 onChange={handlePassword} required placeholder='Contraseña' />
                         </Form.Group>
 

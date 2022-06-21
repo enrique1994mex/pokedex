@@ -3,6 +3,8 @@ import { Button} from 'react-bootstrap';
 
 const ItemLista2 = ({name, id, url, type1, type2, ability}) => {
 
+    console.log("por item lista 2")
+
     return (
         <tr>
             <td className="text-center align-middle">{id}</td>

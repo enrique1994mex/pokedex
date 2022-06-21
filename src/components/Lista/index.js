@@ -1,18 +1,17 @@
 import React from 'react';
 import { Table} from 'react-bootstrap';
 import ItemLista from './ItemLista';
-import ItemLista2 from './ItemLista2';
-import { useSelector } from 'react-redux'; 
 
-const Lista = ({ pokemons, isLoading }) => {
+const Lista = ({ pokemons, isLoading}) => {
 
-    const { pokemonsInfo } = useSelector((state) => state.pokemonsReducer);
-
-    if (isLoading) {
+    if(isLoading) {
         return <div>Cargando...</div>
     }
 
+    console.log("Pasa por Lista")
+
     return (
+        //Renderizado de los pokemons en forma de Lista
         <>
             <Table borderless>
                 <thead className="text-secondary bg-light">
@@ -26,21 +25,10 @@ const Lista = ({ pokemons, isLoading }) => {
                 </thead>
                 <tbody>
                     {
-                        pokemonsInfo.length != 0 ? (
-                            pokemonsInfo.map(pokemon => (
-                                <ItemLista2 key={pokemon.id} 
-                                name={pokemon.name} 
-                                id={pokemon.id} 
-                                url={pokemon.sprites.front_default}
-                                type1={pokemon.types[0].type.name}
-                                type2={pokemon.types[1].type.name}
-                                ability={pokemon.abilities[0].ability.name} />
-                            ))
-                        ) : (
-                            pokemons.map(pokemon => (
-                                <ItemLista key={pokemon} url={pokemon.url} />
-                            ))
-                        )
+                        //Recorrido de todos los pokemones
+                        pokemons.map(pokemon => (
+                            <ItemLista key={pokemon.name} url={pokemon.url} />
+                        ))
                     }
                 </tbody>
             </Table>

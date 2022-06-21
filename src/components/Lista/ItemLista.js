@@ -20,6 +20,8 @@ const ItemLista = ({ url }) => {
             })
     }, [])
 
+
+
     if (!info) {
         return <tr></tr>
     }

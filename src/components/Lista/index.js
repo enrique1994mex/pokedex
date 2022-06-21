@@ -1,8 +1,21 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { Table} from 'react-bootstrap';
 import ItemLista from './ItemLista';
+import { useDispatch } from 'react-redux';
+import { fetchPokemons } from '../../redux/actions/pokemon';
+import { useSelector } from 'react-redux'; 
 
-const Lista = ({ pokemons, isLoading}) => {
+const Lista = () => {
+
+    const { isLoading, pokemons, errorPokemons } = useSelector((state) => state.pokemonsReducer);
+
+     //Dispatch
+     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchPokemons()); 
+    },[])
 
     if(isLoading) {
         return <div>Cargando...</div>

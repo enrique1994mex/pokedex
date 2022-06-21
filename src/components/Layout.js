@@ -1,25 +1,10 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Container, Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
 import Lista from '../components/Lista';
 import Cuadricula from '../components/Cuadricula';
-import { useDispatch } from 'react-redux';
-import { fetchPokemons } from '../redux/actions/pokemon';
-import { useSelector } from 'react-redux'; 
 
 const Layout = () => {
-
-    const { isLoading, pokemons, errorPokemons } = useSelector((state) => state.pokemonsReducer);
-
-    console.log("Pasa por Layout")
-
-     //Dispatch
-     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(fetchPokemons()); 
-    },[])
-
 
     //Estado de los botones Lista y Cuadrícula
     const [buttonView, setButtonView] = useState(true);
@@ -70,7 +55,7 @@ const Layout = () => {
                 </Row>
                 <main>
                     {
-                       buttonView ? <Lista pokemons={pokemons} isLoading={isLoading}/> : <Cuadricula pokemons={pokemons} />
+                       buttonView ? <Lista/> : <Cuadricula/>
                     }
                 </main>
             </Container>

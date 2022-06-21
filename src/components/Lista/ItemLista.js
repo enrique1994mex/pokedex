@@ -2,13 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Button} from 'react-bootstrap';
 import { pokemonInfo } from '../../api';
-import { addPokemon} from '../../redux/actions/pokemon'; 
-import { useDispatch } from 'react-redux';
 
 const ItemLista = ({ url }) => {
-
-    //Dispatch
-    const dispatch = useDispatch();
 
     const [info, setInfo] = useState(null);
 
@@ -16,11 +11,8 @@ const ItemLista = ({ url }) => {
         pokemonInfo(url)
             .then(data => {
                 setInfo(data)
-                dispatch(addPokemon({info:data}))
             })
     }, [])
-
-
 
     if (!info) {
         return <tr></tr>

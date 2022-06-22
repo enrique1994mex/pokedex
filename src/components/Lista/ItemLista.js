@@ -30,7 +30,7 @@ const ItemLista = ({ url }) => {
             </td>
             <td className="text-center align-middle">
                 <p>{info.types[0].type.name}</p>
-                <p>{info.types[1].type.name}</p>
+                
             </td>
             <td className="text-center align-middle">{info.abilities[0].ability.name}</td>
 

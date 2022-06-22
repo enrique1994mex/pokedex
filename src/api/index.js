@@ -1,5 +1,5 @@
 const pokemons = async () => {
-    return fetch(`https://pokeapi.co/api/v2/pokemon?limit=3&offset=0`)
+    return fetch(`https://pokeapi.co/api/v2/pokemon?limit=50&offset=0`)
         .then(response => response.json())
         .then(data => {
             return data.results

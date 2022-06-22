@@ -1,9 +1,9 @@
 import React from 'react';
-import Home from './views/Home';
+import RoutesComponents from './routes';
 
 function App() {
   return (
-    <Home/>
+    <RoutesComponents/>
   );
 }
 

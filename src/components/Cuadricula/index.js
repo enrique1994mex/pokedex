@@ -1,6 +1,6 @@
-import React from 'react'; 
+import React from 'react';
 import { useEffect } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
 import ItemCuadricula from './ItemCuadricula';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -10,23 +10,23 @@ const Cuadricula = () => {
 
     const { isLoading, pokemons, errorPokemons } = useSelector((state) => state.pokemonsReducer);
 
-     //Dispatch
-     const dispatch = useDispatch();
+    //Dispatch
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchPokemons()); 
-    },[])
+        dispatch(fetchPokemons());
+    }, [])
 
-    if(isLoading) {
-        return <div>Cargando...</div>
+    if (isLoading) {
+        return <Spinner animation="border" variant="secondary"/>
     }
 
-    return(
+    return (
         <Container>
             <Row className="g-3">
                 {
                     pokemons.map(pokemon => (
-                        <ItemCuadricula key={pokemon.name} url={pokemon.url}/>
+                        <ItemCuadricula key={pokemon.name} url={pokemon.url} />
                     ))
                 }
             </Row>

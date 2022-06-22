@@ -1,24 +1,24 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { Table} from 'react-bootstrap';
+import { Table, Spinner } from 'react-bootstrap';
 import ItemLista from './ItemLista';
 import { useDispatch } from 'react-redux';
 import { fetchPokemons } from '../../redux/actions/pokemon';
-import { useSelector } from 'react-redux'; 
+import { useSelector } from 'react-redux';
 
 const Lista = () => {
 
     const { isLoading, pokemons, errorPokemons } = useSelector((state) => state.pokemonsReducer);
 
-     //Dispatch
-     const dispatch = useDispatch();
+    //Dispatch
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchPokemons()); 
-    },[])
+        dispatch(fetchPokemons());
+    }, [])
 
-    if(isLoading) {
-        return <div>Cargando...</div>
+    if (isLoading) {
+        return <Spinner animation="border" variant="secondary"/>
     }
 
     return (

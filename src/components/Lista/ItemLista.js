@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 
 const ItemLista = ({ url }) => {
 
+    //Estado de la información del pokemon
     const [info, setInfo] = useState(null);
 
+    //useEffect para traer la información del pokemon de la API
     useEffect(() => {
         pokemonInfo(url)
             .then(data => {

@@ -8,8 +8,10 @@ const Detail = () => {
 
     const { pokemon } = useParams();
 
+    //Estado de la información del pokemon
     const [info, setInfo] = useState(null);
 
+    //useEffect para traer la información del pokemon de la API
     useEffect(() => {
         pokemonDetail(pokemon)
             .then(data => {
@@ -21,8 +23,10 @@ const Detail = () => {
         return <Container></Container>
     }
 
+    //Extraer las imagenes del objeto info
     let valores = Object.values(info.sprites);
 
+    //Función que retorna diez valores de un array si los hay
     function NuevoArray (arrayPam) {
         let miArray = [];
         let numArra = 0;
@@ -33,6 +37,7 @@ const Detail = () => {
         return miArray
     }
 
+    //Extraer los movimientos del pokemon
     const arrayMoves = NuevoArray(info.moves)
 
     return (

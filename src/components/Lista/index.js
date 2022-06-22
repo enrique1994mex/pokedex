@@ -13,10 +13,12 @@ const Lista = () => {
     //Dispatch
     const dispatch = useDispatch();
 
+    //useEffect para traer la información de los pokemons
     useEffect(() => {
         dispatch(fetchPokemons());
     }, [])
 
+    //Carga de la información de los pokemons
     if (isLoading) {
         return <Spinner animation="border" variant="secondary"/>
     }

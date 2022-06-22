@@ -19,8 +19,6 @@ export const fetchPokemons = () => async (dispatch) => {
 }
 
 
-export const addPokemon = createAction('ADD_POKEMON');
-
 
 
 

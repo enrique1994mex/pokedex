@@ -1,10 +1,9 @@
-import {startFetchPokemons, successFetchPokemons, errorFetchPokemons, addPokemon } from '../actions/pokemon';
+import {startFetchPokemons, successFetchPokemons, errorFetchPokemons } from '../actions/pokemon';
 
 const initialState = {
     isLoading: true,
     pokemons: {},
     errorPokemons: null,
-    pokemonsInfo: []
 }
 
 const pokemonsReducer = (state = initialState, action) => {
@@ -26,11 +25,6 @@ const pokemonsReducer = (state = initialState, action) => {
                 isLoading: false,
                 pokemons: {}, 
                 errorPokemons: action.payload
-            }
-        case addPokemon.toString():
-            return {
-                ...state,
-                pokemonsInfo: [...state.pokemonsInfo, action.payload.info]
             }
         default:
             return state;

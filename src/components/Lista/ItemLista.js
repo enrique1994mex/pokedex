@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Button} from 'react-bootstrap';
 import { pokemonInfo } from '../../api';
+import Shiny from '../Shiny'; 
 
 const ItemLista = ({ url }) => {
 
@@ -18,6 +18,8 @@ const ItemLista = ({ url }) => {
         return <tr></tr>
     }
 
+    console.log(info)
+
     return (
         <tr>
             <td className="text-center align-middle">{info.id}</td>
@@ -28,7 +30,7 @@ const ItemLista = ({ url }) => {
                 <p>{info.types[1].type.name}</p>
             </td>
             <td className="text-center align-middle">{info.abilities[0].ability.name}</td>
-            <td className="text-center align-middle"><Button variant="secondary" size="sm">Shiny</Button></td>
+            <td className="text-center align-middle"><Shiny name={info.name} shiny={info.sprites.front_shiny}/></td>
         </tr>
     )
 }

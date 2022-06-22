@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Col, Button, Card } from 'react-bootstrap';
 import { pokemonInfo } from '../../api';
+import Shiny from '../Shiny';
 
 const ItemCuadricula = ({ url }) => {
 
@@ -33,7 +34,7 @@ const ItemCuadricula = ({ url }) => {
                             <p className="my-0">{info.types[0].type.name}</p>
                             <p className="my-0 mx-1">{info.types[1].type.name}</p>
                         </div>
-                        <Button variant="secondary" size="sm">Shiny</Button>
+                        <Shiny name={info.name} shiny={info.sprites.front_shiny}/>
                     </div>
                 </Card.Body>
             </Card>

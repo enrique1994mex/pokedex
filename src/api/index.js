@@ -20,3 +20,15 @@ const pokemonInfo = async (url) => {
 }
 
 export {pokemonInfo}; 
+
+
+const pokemonDetail = async (name) => {
+    return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+    .then(response => response.json())
+    .then(data => {
+        return data
+    })
+    .catch(error => error)
+}
+
+export {pokemonDetail}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Col, Button, Card } from 'react-bootstrap';
+import { Col, Card } from 'react-bootstrap';
 import { pokemonInfo } from '../../api';
 import Shiny from '../Shiny';
 

@@ -29,11 +29,15 @@ const ItemCuadricula = ({ url }) => {
                 <Card.Body>
                     <Card.Title>{info.name}</Card.Title>
                     <div className="d-flex">
-                        <p className="w-50 text-center">{info.abilities[0].ability.name}</p>
+                        {
+                            info.abilities.map((pok, index) => <p className="w-50 text-center" key={index}>{pok.ability.name}</p>)
+                        }
                     </div>
                     <div className="d-flex justify-content-between align-items-center">
                         <div className="d-flex align-items-center">
-                            <p className="my-0">{info.types[0].type.name}</p>
+                            {
+                                info.types.map((pok, index) => <p className="my-0 mx-1" key={index}>{pok.type.name}</p>)
+                            }
                         </div>
                         <Shiny name={info.name} shiny={info.sprites.front_shiny} />
                     </div>

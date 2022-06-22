@@ -25,12 +25,13 @@ const ItemLista = ({ url }) => {
             <td className="text-center align-middle">{info.name}</td>
             <td className="text-center">
                 <Link to={`/detail/${info.name}`}>
-                    <img src={info.sprites.front_default} />
+                    <img alt={info.name} src={info.sprites.front_default} />
                 </Link>
             </td>
             <td className="text-center align-middle">
-                <p>{info.types[0].type.name}</p>
-                
+                {
+                    info.types.map((pok,index) => <p key={index}>{pok.type.name}</p>)
+                }
             </td>
             <td className="text-center align-middle">{info.abilities[0].ability.name}</td>
 

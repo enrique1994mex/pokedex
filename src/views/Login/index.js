@@ -20,6 +20,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         const user = { email, password };
         localStorage.setItem('user', JSON.stringify(user));
+        window.location.href = "/"
         e.preventDefault();
     }
     return (
